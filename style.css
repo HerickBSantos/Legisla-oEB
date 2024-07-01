@@ -1,0 +1,215 @@
+/* Reset básico e estilos globais */
+* {
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+    box-sizing: border-box; /* Inclui padding e border no cálculo do tamanho total dos elementos */
+}
+
+/* Estilos globais do body */
+body {
+    font-family: 'Roboto', sans-serif; /* Define a fonte principal */
+    background-image: url('https://media.gazetadopovo.com.br/2020/10/14153642/49898026076_7c5f53031b_c.jpg'); /* Define a imagem de fundo */
+    background-size: cover; /* Cobre toda a área da tela */
+    background-position: center; /* Centraliza a imagem de fundo */
+    background-attachment: fixed; /* Fixa a imagem ao fundo da página */
+    display: flex; /* Define o layout flexível */
+    flex-direction: column; /* Coloca os elementos em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: flex-start; /* Alinha os itens ao início do eixo principal */
+    height: 100vh; /* Define a altura da página como 100% da altura da viewport */
+    margin: 0; /* Remove a margem */
+    padding: 0; /* Remove o preenchimento */
+}
+
+/* Estilos do cabeçalho */
+.header {
+    width: 100%; /* Define a largura como 100% */
+    background-color: rgba(0, 53, 22, 0.8); /* Cor de fundo com opacidade */
+    color: white; /* Cor do texto */
+    padding: 40px 0; /* Preenchimento vertical */
+    text-align: center; /* Centraliza o texto */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona sombra à caixa */
+    position: fixed; /* Fixa a posição no topo da página */
+    top: 0; /* Alinha ao topo */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    animation: fadeInDown 0.5s ease-out; /* Animação de fade in ao carregar */
+}
+
+.header h1 {
+    margin: 0; /* Remove a margem */
+    font-weight: 600; /* Define a espessura da fonte */
+    font-size: 3em; /* Tamanho da fonte */
+}
+
+/* Botão do menu */
+.menu-btn {
+    position: absolute; /* Posição absoluta em relação ao header */
+    left: 50px; /* Distância da esquerda */
+    top: 50px; /* Distância do topo */
+    background: none; /* Sem fundo */
+    border: none; /* Sem borda */
+    color: white; /* Cor do texto */
+    font-size: 30px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    transition: transform 0.3s; /* Transição suave na transformação */
+    z-index: 1001; /* Fica acima do header */
+}
+
+.menu-btn:hover {
+    transform: scale(1.2); /* Aumenta o tamanho ao passar o mouse */
+}
+
+/* Estilos do menu lateral */
+.menu {
+    position: fixed; /* Fixa a posição */
+    left: -250px; /* Inicialmente fora da tela */
+    top: 0; /* Alinhado ao topo */
+    width: 250px; /* Largura do menu */
+    height: 100%; /* Altura total da viewport */
+    background-color: #2c2c2c; /* Cor de fundo */
+    display: flex; /* Layout flexível */
+    flex-direction: column; /* Coloca os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    padding-top: 150px; /* Espaçamento superior */
+    transition: left 0.5s; /* Transição suave na posição horizontal */
+    z-index: 1001; /* Fica acima do header */
+
+
+}
+/* Imagem do menu lateral */
+.menu::after {
+    content: ''; /* Cria um elemento vazio */
+    position: absolute; /* Posição absoluta dentro do menu */
+    top: 10px; /* Distância do topo */
+    left: 15px; /* Distância da esquerda */
+    width: 170px; /* Largura do elemento */
+    height: 200px; /* Altura do elemento */
+    background-image: url('docs/Imagem1.png'); /* Imagem de fundo */
+    background-size: cover; /* Cobre toda a área do elemento */
+}
+
+/* Links do menu */
+.menu a {
+    color: white; /* Cor do texto */
+    text-decoration: none; /* Remove sublinhado */
+    font-size: 20px; /* Tamanho da fonte */
+    margin: 55px 0; /* Espaçamento vertical */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    text-align: center; /* Centraliza o texto */
+    width: 100%; /* Largura total */
+    display: flex; /* Layout flexível */
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    height: 100px; /* Altura dos itens */
+    transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
+}
+
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo levemente branco ao passar o mouse */
+    transform: translateX(15px); /* Move ligeiramente para a direita */
+}
+
+/* Botão de fechar o menu */
+.close-btn {
+    position: absolute; /* Posição absoluta */
+    top: 20px; /* Distância do topo */
+    right: 20px; /* Distância da direita */
+    background: none; /* Sem fundo */
+    border: none; /* Sem borda */
+    color: white; /* Cor do texto */
+    font-size: 30px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    transition: transform 0.3s; /* Transição suave na transformação */
+}
+
+.close-btn:hover {
+    transform: scale(1.25); /* Aumenta o tamanho ao passar o mouse */
+}
+
+/* Texto no canto inferior do menu */
+.menu::before {
+    content: 'Exército Brasileiro \A Braço Forte - Mão Amiga';
+    position: absolute;
+    bottom: 20px; /* Distância do fundo */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%);
+    color: white;
+    font-size: 13px;
+    opacity: 0.7;
+    text-align: center; /* Centraliza o texto */
+    width: 100%; /* Ocupa toda a largura disponível */
+    line-height: 1.5; /* Espaçamento entre linhas */
+    white-space: pre; /* Mantém a formatação de quebra de linha */
+}
+
+
+/* Container principal para os elementos */
+.container {
+    display: grid; /* Layout em grade */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Colunas flexíveis */
+    gap: 20px; /* Espaçamento entre os itens */
+    max-width: 900px; /* Largura máxima do container */
+    width: 100%; /* Largura total */
+    padding: 20px; /* Preenchimento interno */
+    margin-top: 400px; /* Espaço para o header fixo */
+}
+
+/* Estilos das caixas (retângulos) dentro do container */
+.rectangle {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com opacidade */
+    color: #343a40; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    padding: 30px 20px; /* Preenchimento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra da caixa */
+    transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s; /* Transições suaves */
+    position: relative; /* Posição relativa */
+    overflow: hidden; /* Oculta o conteúdo excedente */
+}
+
+.rectangle::before {
+    content: ""; /* Cria um elemento vazio */
+    position: absolute; /* Posição absoluta dentro do elemento */
+    top: -50px; /* Fora da vista inicial */
+    left: -50px; /* Fora da vista inicial */
+    width: 100px; /* Largura do elemento */
+    height: 100px; /* Altura do elemento */
+    background-color: #007bff; /* Cor de fundo azul */
+    opacity: 0.1; /* Transparência */
+    transform: rotate(45deg); /* Rotaciona o elemento */
+}
+
+/* Links dentro das caixas */
+.rectangle a {
+    color: #343a40; /* Cor do texto */
+    text-decoration: none; /* Remove sublinhado */
+    font-size: 18px; /* Tamanho da fonte */
+    font-weight: 700; /* Espessura da fonte */
+    z-index: 1; /* Garante que fique acima dos outros elementos */
+    position: relative; /* Posição relativa */
+}
+
+.rectangle:hover {
+    transform: translateY(-10px); /* Move para cima ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta a sombra ao passar o mouse */
+}
+
+.rectangle:hover a {
+    color: #007bff; /* Muda a cor do texto ao passar o mouse */
+}
+
+/* Estilos das notificações */
+.notification {
+    position: fixed; /* Posição fixa na tela */
+    bottom: 20px; /* Distância do fundo */
+    right: 20px; /* Distância da direita */
+    background-color: #343a40; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 10px 20px; /* Preenchimento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra da caixa */
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s, transform 0.3s; /* Transições suaves */
+    transform: translateY(20px); /* Move para cima ao exibir */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
